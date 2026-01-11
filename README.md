@@ -71,7 +71,10 @@
             wsl --unregister debian
             
             
-  
+          set default destro[direct logged in via wsl command no need to tell distro like wsl -d debian]
+          -------------------------
+          wsl -s debian
+          
   
             after enter into debian linux
             ==============================
