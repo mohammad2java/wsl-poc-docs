@@ -123,9 +123,14 @@
       -----------------------------------------------
       sudo minikube start --force
 
-      ## findout encode argocd password.
+      ## findout encoded argocd password.
       --------------------------------------------
       sudo kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
+
+      ## find decoded password.
+      -----------------------
+      sudo kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d
+      
 
 
 
