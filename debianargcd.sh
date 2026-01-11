@@ -25,7 +25,7 @@ echo ""
 # 3) Check running pods
 echo "[3/4] Checking running pods in argocd namespace..."
 echo "Waiting for pods to be ready (this may take a few minutes)..."
-sleep 10
+sleep 100
 kubectl get pods -n argocd
 echo ""
 
