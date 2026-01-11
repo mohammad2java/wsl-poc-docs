@@ -40,6 +40,9 @@ sudo service docker start
 echo "Verifying Docker installation..."
 sudo docker --version
 
+# add user into docker group
+sudo usermod -aG docker $USER
+
 echo "Docker installation completed successfully!"
 echo "You may want to add your user to the docker group to run Docker without sudo:"
 echo "  sudo usermod -aG docker \$USER"
