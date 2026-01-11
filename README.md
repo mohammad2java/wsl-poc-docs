@@ -125,7 +125,7 @@
 
       ## findout encode argocd password.
       --------------------------------------------
-       kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
+      sudo kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
 
 
 
