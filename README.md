@@ -14,7 +14,7 @@
 
 ## how to do WSL
      ---------------------
-     wsl --help // you will get list of command ..
+           wsl --help // you will get list of command ..
      
 
             Install debian and docker service inside debian using wsl in windows - 
