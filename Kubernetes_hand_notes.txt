@@ -1,0 +1,150 @@
+### -----------------------------------Notes ------------------------------##
+----------------------------------------------------------------------------------------
+
+--> any k8g cluster nodes:
+------------------------------------
+top level entity is get-contexts --this is listing cluster that available locally/remotely --* pointing current cluster connection.
+
+
+C:\Users\HP>kubectl config get-contexts
+CURRENT   NAME                                                                 CLUSTER                                  AUTHINFO                                             NAMESPACE
+          amir87-tech-dev/api-rm1-0a51-p1-openshiftapps-com:6443/amir87-tech   api-rm1-0a51-p1-openshiftapps-com:6443   amir87-tech/api-rm1-0a51-p1-openshiftapps-com:6443   amir87-tech-dev
+*         docker-desktop                                                       docker-desktop                           docker-desktop                      
+          rancher-desktop    
+
+
+
+Here you can see * pointing current connection of contexts 
+..so whatevr command you will hit..it will hit to current context cluster /remotely or locally/remotely
+
+
+
+you can change desired context
+--------------------------------
+kubectl config use-context <context-name>
+
+
+after config proper context
+-------------------------------
+you can checks nodes,namespace -[logical division within context]
+
+kubectl get nodes
+kubectl cluster-info
+kubectl get namespaces
+
+-----------------------------------
+
+after deployments -- get commands for pods/deployments/replicasets/services
+------------------------------------------------------------
+kubectl get pods
+kubectl get deployments
+kubectl get replicasets
+kubectl get services
+
+
+
+watching container/pods logs
+------------------------------------
+
+kubectl logs <pod-name>   --for single container per pod
+kubectl logs <pod-name> -c <container-name>    --for multiple container per pod.
+
+==> live log  / Follow Logs (Live tail like tail -f)
+--------------------------------------------------------
+kubectl logs -f <pod-name>
+kubectl logs -f <pod-name> -c <container-name>
+
+
+==> Get Previous Crash Logs[Useful when container restarted (CrashLoopBackOff)]
+----------------------------------------------------------
+  kubectl logs --previous <pod-name>
+  
+  
+  ==> Live tail for all pods:
+  -----------------------------------------
+  kubectl logs -l app=myapp -f --all-containers
+  
+
+
+--- do hand dirty 
+---------------------------
+
+creating deployment object for nginx
+
+kubectl create deployment nginx --image=nginx --replicas=3
+
+
+
+
+
+
+
+How to install Agrocd into your K8s cluster [Install ArgoCD (Official YAML)]
+===========================================================================
+1) create argocd namespace:
+kubectl create namespace argocd
+
+2) deploy argocd deployment resources by url
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+3) check running pods
+kubectl get pods -n argocd
+
+4) open port for UI 
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+5) find password of UI admin user. [which is base64 encoded]
+ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
+
+6) look online for decode this base64
+https://www.base64decode.org/
+
+
+https://localhost:8080
+
+user: admin
+password:  decoded one from step6.
+
+
+
+----------------------------
+
+production ready setup for argocd [if crash the cluster]
+
+1) daily export agrocd metadata into s3.
+
+
+2) for import 
+setup new cluster as mentioned above & imported export file.
+
+3) 
+
+
+
+
+
+
+
+
+
+
+
+setup minikube into debian
+=============================
+
+
+# add user into docker group
+sudo usermod -aG docker $USER
+
+# install wget client
+sudo apt install wget
+
+# Download and install Minikube v1.37.0 for Intel 64-bit
+wget https://github.com/kubernetes/minikube/releases/download/v1.37.0/minikube_1.37.0-0_amd64.deb
+sudo dpkg -i minikube_1.37.0-0_amd64.deb
+
+# Verify installation
+minikube version
+
+# Install kubectl 
+sudo apt install kubectl
