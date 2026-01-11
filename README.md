@@ -117,3 +117,15 @@
   
             verify:  curl http://localhost
 
+
+
+       ## create k8s cluster using minikube 
+      -----------------------------------------------
+      sudo minikube start --force
+
+      ## findout encode argocd password.
+      --------------------------------------------
+       kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
+
+
+
