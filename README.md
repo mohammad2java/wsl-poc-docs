@@ -1,7 +1,7 @@
 
 
 # wsl-poc-docs
-   ## why wsl 
+   ## why WSL 
    -------------
      to run/install linux distribution inside windows os [example ubuntu or debian]
 
