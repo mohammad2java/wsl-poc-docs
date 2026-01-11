@@ -8,7 +8,7 @@
 ## what is WSL 
    -------------
      It is software from windows and as subsystem for linux os -- You check current version installed by
-     wsl --version // for check current version
+     wsl --version // for check current version as of today [jan2026 - 2.6.3 Latest]
      wsl --update  //for update wsl version
      https://github.com/microsoft/wsl/releases
 
