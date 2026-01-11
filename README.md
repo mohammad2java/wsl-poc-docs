@@ -1,8 +1,22 @@
-# wsl-poc-docs
 
-          
-            install debian and docker service inside debian using wsl in windows 
-            -----------------------------------------------------------------------
+
+# wsl-poc-docs
+   ## why wsl 
+   -------------
+     to run/install linux distribution inside windows os [example ubuntu or debian]
+
+## what is WSL 
+   -------------
+     it is software from windows and as subsystem for linux os -- You check current version installed by wsl --version and you can update with updated version wsl --update
+     https://github.com/microsoft/wsl/releases
+
+## how to do WSL
+     ---------------------
+     wsl --help // you will get list of command ..
+     
+
+            Install debian and docker service inside debian using wsl in windows - 
+            ---------------------------------------------------------------------
             
             listing availble distro in machine
             -----------------------------------
@@ -12,7 +26,6 @@
             	Debian
             	rancher-desktop
             	docker-desktop
-            
             
             
             
